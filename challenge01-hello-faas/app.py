@@ -27,6 +27,15 @@ def hello():
 
 # TODO: Add /goodbye endpoint here
 # Your code goes below this line
+@app.route('/goodbye', methods=['GET'])
+def goodbye():
+    """
+    Say goodbye to a user by name
+    Query parameter: name (optional, defaults to 'World')
+    """
+    name = request.args.get('name', 'World')
+    return jsonify({"message": f"Goodbye, {name}!"})
+  
 
 
 if __name__ == '__main__':
